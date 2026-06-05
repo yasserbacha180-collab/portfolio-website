@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yasser Bacha | Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #6c63ff;
+      --dark: #1a1a2e;
+      --gray: #f8f8ff;
+      --text: #444;
+    }
+    body { font-family: 'Segoe UI', sans-serif; color: var(--text); }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,46,0.95); backdrop-filter: blur(8px);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 48px; height: 60px;
+    }
+    .logo { color: #fff; font-weight: 800; font-size: 20px; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: #ccc; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; background: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 80px 24px 40px;
+    }
+    .hero-content { max-width: 680px; }
+    .avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #a78bfa);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; margin: 0 auto 24px;
+      box-shadow: 0 0 30px rgba(108,99,255,0.4);
+    }
+    .hero-content h1 { color: #fff; font-size: clamp(32px, 6vw, 56px); font-weight: 900; margin-bottom: 12px; }
+    .hero-content h1 span { color: var(--primary); }
+    .tagline { color: #aaa; font-size: 18px; margin-bottom: 32px; line-height: 1.6; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 12px 28px; border-radius: 30px; font-weight: 700;
+      font-size: 14px; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #574fd6; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* SECTION */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .section-label { color: var(--primary); font-weight: 700; font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; }
+    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 900; color: var(--dark); margin-bottom: 48px; }
+
+    /* ABOUT */
+    #about { background: var(--gray); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-text p { line-height: 1.8; color: #555; margin-bottom: 16px; font-size: 15px; }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .skill-tag {
+      background: #fff; border: 2px solid #e0e0ff;
+      color: var(--primary); padding: 6px 16px; border-radius: 20px;
+      font-size: 13px; font-weight: 600;
+    }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-card {
+      background: #fff; border-radius: 14px; padding: 24px;
+      text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .stat-card .num { font-size: 32px; font-weight: 900; color: var(--primary); }
+    .stat-card .lbl { font-size: 12px; color: #999; margin-top: 4px; }
+
+    /* PROJECTS */
+    #projects { background: #fff; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .project-card {
+      border-radius: 14px; padding: 28px; border: 2px solid #f0f0f0;
+      transition: all 0.2s; background: #fff;
+    }
+    .project-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(108,99,255,0.12); }
+    .project-icon { font-size: 32px; margin-bottom: 14px; }
+    .project-card h3 { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+    .project-card p { font-size: 14px; color: #777; line-height: 1.6; margin-bottom: 16px; }
+    .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; background: #f0f0ff; color: var(--primary); }
+    .project-link { display: inline-block; margin-top: 16px; color: var(--primary); font-weight: 700; font-size: 13px; }
+
+    /* CONTACT */
+    #contact { background: var(--dark); }
+    #contact .section-title { color: #fff; }
+    #contact .section-label { color: #a78bfa; }
+    .contact-box {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 48px; text-align: center; max-width: 560px; margin: 0 auto;
+    }
+    .contact-box p { color: #aaa; line-height: 1.8; margin-bottom: 28px; }
+    .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .contact-link {
+      background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.3);
+      color: #c4b5fd; padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 600;
+      transition: all 0.2s;
+    }
+    .contact-link:hover { background: var(--primary); color: #fff; }
+
+    /* FOOTER */
+    footer { background: #0d0d1f; color: #666; text-align: center; padding: 24px; font-size: 13px; }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Yasser<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="avatar">👨‍💻</div>
+    <h1>Hi, I'm <span>Yasser Bacha</span></h1>
+    <p class="tagline">Computer Science Engineering Student · Python & Web Developer<br>Passionate about building real-world solutions with code.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View My Projects</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">WHO I AM</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a first-year Computer Science engineering student from Algeria, passionate about software development and problem-solving.</p>
+        <p>I enjoy building projects that solve real problems — from Python scripts to web apps. I'm currently focused on growing my skills in Python, web development, and AI integration.</p>
+        <p>My goal is to keep learning and contribute to meaningful technology projects.</p>
+        <div class="skills-list">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Git & GitHub</span>
+          <span class="skill-tag">Linux</span>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card"><div class="num">6+</div><div class="lbl">Projects Built</div></div>
+        <div class="stat-card"><div class="num">1st</div><div class="lbl">Year CS Student</div></div>
+        <div class="stat-card"><div class="num">DZ</div><div class="lbl">Based in Algeria</div></div>
+        <div class="stat-card"><div class="num">AI</div><div class="lbl">Focus Area</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">WHAT I BUILT</div>
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-icon">📊</div>
+        <h3>Student Grade Calculator</h3>
+        <p>A Python terminal app to calculate grades, GPA and averages across multiple subjects.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Terminal</span></div>
+        <a class="project-link" href="https://github.com/yasserbacha180-collab/student-grade-calculator" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">✅</div>
+        <h3>To-Do App</h3>
+        <p>A clean web-based to-do list with filtering, localStorage persistence and a modern UI.</p>
+        <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        <a class="project-link" href="https://github.com/yasserbacha180-collab/todo-app" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🌤️</div>
+        <h3>Weather App</h3>
+        <p>Real-time weather data for any city using the OpenWeatherMap API. Built with pure Python.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">API</span></div>
+        <a class="project-link" href="https://github.com/yasserbacha180-collab/weather-app" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🧠</div>
+        <h3>Quiz Game</h3>
+        <p>A CS-themed Python quiz game with 15-second timers, score tracking and randomized questions.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">Game</span></div>
+        <a class="project-link" href="https://github.com/yasserbacha180-collab/quiz-game" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🤖</div>
+        <h3>AI Text Summarizer</h3>
+        <p>GPT-powered Python app that summarizes any text in short, medium or long format.</p>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">OpenAI</span><span class="tag">AI</span></div>
+        <a class="project-link" href="https://github.com/yasserbacha180-collab/ai-text-summarizer" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🐱</div>
+        <h3>Cat Website</h3>
+        <p>A fun cat-themed website built with HTML and CSS. My first web project.</p>
+        <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+        <a class="project-link" href="https://github.com/yasserbacha180-collab/cat-website" target="_blank">View on GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">GET IN TOUCH</div>
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-box">
+      <p>I'm open to collaborations, internships, and new opportunities. Feel free to reach out!</p>
+      <div class="contact-links">
+        <a class="contact-link" href="https://github.com/yasserbacha180-collab" target="_blank">🐙 GitHub</a>
+        <a class="contact-link" href="mailto:yasserbacha180@gmail.com">✉️ Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Yasser Bacha — Built with HTML & CSS
+</footer>
+
+</body>
+</html>
