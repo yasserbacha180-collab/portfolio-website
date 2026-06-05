@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yasser Bacha | Portfolio</title>
+  <title>Bacha Mohamed Yasser | Portfolio</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -15,7 +15,6 @@
     body { font-family: 'Segoe UI', sans-serif; color: var(--text); }
     a { text-decoration: none; color: inherit; }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(26,26,46,0.95); backdrop-filter: blur(8px);
@@ -28,34 +27,36 @@
     .nav-links a { color: #ccc; font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--primary); }
 
-    /* HERO */
     #hero {
       min-height: 100vh; background: var(--dark);
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 80px 24px 40px;
     }
-    .hero-content { max-width: 680px; }
+    .hero-content { max-width: 720px; }
     .avatar {
-      width: 110px; height: 110px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), #a78bfa);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 48px; margin: 0 auto 24px;
-      box-shadow: 0 0 30px rgba(108,99,255,0.4);
+      width: 120px; height: 120px; border-radius: 50%;
+      overflow: hidden; margin: 0 auto 24px;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 30px rgba(108,99,255,0.5);
     }
-    .hero-content h1 { color: #fff; font-size: clamp(32px, 6vw, 56px); font-weight: 900; margin-bottom: 12px; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .hero-content h1 { color: #fff; font-size: clamp(30px, 6vw, 54px); font-weight: 900; margin-bottom: 10px; }
     .hero-content h1 span { color: var(--primary); }
-    .tagline { color: #aaa; font-size: 18px; margin-bottom: 32px; line-height: 1.6; }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      padding: 12px 28px; border-radius: 30px; font-weight: 700;
-      font-size: 14px; transition: all 0.2s; cursor: pointer; border: none;
+    .hero-subtitle { color: #a78bfa; font-size: 16px; letter-spacing: 2px; font-weight: 600; margin-bottom: 16px; }
+    .tagline { color: #aaa; font-size: 16px; margin-bottom: 12px; line-height: 1.7; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .tcf-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.4);
+      color: #c4b5fd; padding: 8px 18px; border-radius: 20px;
+      font-size: 13px; font-weight: 700; margin-bottom: 28px;
     }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 12px 28px; border-radius: 30px; font-weight: 700; font-size: 14px; transition: all 0.2s; cursor: pointer; border: none; }
     .btn-primary { background: var(--primary); color: #fff; }
     .btn-primary:hover { background: #574fd6; transform: translateY(-2px); }
     .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.3); }
     .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
-    /* SECTION */
     section { padding: 80px 24px; }
     .section-inner { max-width: 960px; margin: 0 auto; }
     .section-label { color: var(--primary); font-weight: 700; font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; }
@@ -63,29 +64,65 @@
 
     /* ABOUT */
     #about { background: var(--gray); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
     .about-text p { line-height: 1.8; color: #555; margin-bottom: 16px; font-size: 15px; }
-    .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .skill-tag {
-      background: #fff; border: 2px solid #e0e0ff;
-      color: var(--primary); padding: 6px 16px; border-radius: 20px;
-      font-size: 13px; font-weight: 600;
-    }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .stat-card {
-      background: #fff; border-radius: 14px; padding: 24px;
-      text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-    .stat-card .num { font-size: 32px; font-weight: 900; color: var(--primary); }
+
+    .info-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .info-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #555; }
+    .info-item span:first-child { font-size: 18px; width: 24px; }
+
+    .skills-section h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 10px; letter-spacing: 1px; }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .skill-tag { background: #fff; border: 2px solid #e0e0ff; color: var(--primary); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+
+    .about-right { display: flex; flex-direction: column; gap: 20px; }
+    .stat-card { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .stat-card .num { font-size: 28px; font-weight: 900; color: var(--primary); }
     .stat-card .lbl { font-size: 12px; color: #999; margin-top: 4px; }
+
+    .lang-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .lang-item { background: #fff; border-radius: 10px; padding: 14px 10px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .lang-item .lang-name { font-weight: 800; font-size: 14px; color: var(--dark); }
+    .lang-item .lang-level { font-size: 11px; color: var(--primary); font-weight: 600; margin-top: 4px; }
+
+    /* TIMELINE */
+    #experience { background: #fff; }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #e0e0ff; }
+    .timeline-item { position: relative; margin-bottom: 36px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -28px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--primary); border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    .timeline-meta { font-size: 12px; color: var(--primary); font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+    .timeline-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .timeline-sub { font-size: 13px; color: #888; }
+
+    /* TCF */
+    #certifications { background: var(--gray); }
+    .tcf-card {
+      background: linear-gradient(135deg, #1a1a2e, #2d2d5e);
+      border-radius: 20px; padding: 40px; display: flex;
+      align-items: center; gap: 40px; flex-wrap: wrap;
+      border: 1px solid rgba(108,99,255,0.3);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .tcf-left { flex: 1; min-width: 200px; }
+    .tcf-flag { font-size: 40px; margin-bottom: 12px; }
+    .tcf-name { color: #fff; font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+    .tcf-org { color: #a78bfa; font-size: 13px; font-weight: 600; letter-spacing: 1px; }
+    .tcf-date { color: #666; font-size: 12px; margin-top: 8px; }
+    .tcf-scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; flex: 2; }
+    .score-item { background: rgba(255,255,255,0.07); border-radius: 12px; padding: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+    .score-level { font-size: 28px; font-weight: 900; color: var(--primary); }
+    .score-label { font-size: 11px; color: #aaa; margin-top: 4px; }
 
     /* PROJECTS */
     #projects { background: #fff; }
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .project-card {
-      border-radius: 14px; padding: 28px; border: 2px solid #f0f0f0;
-      transition: all 0.2s; background: #fff;
-    }
+    .project-card { border-radius: 14px; padding: 28px; border: 2px solid #f0f0f0; transition: all 0.2s; }
     .project-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(108,99,255,0.12); }
     .project-icon { font-size: 32px; margin-bottom: 14px; }
     .project-card h3 { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
@@ -98,26 +135,19 @@
     #contact { background: var(--dark); }
     #contact .section-title { color: #fff; }
     #contact .section-label { color: #a78bfa; }
-    .contact-box {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px; padding: 48px; text-align: center; max-width: 560px; margin: 0 auto;
-    }
+    .contact-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 48px; text-align: center; max-width: 560px; margin: 0 auto; }
     .contact-box p { color: #aaa; line-height: 1.8; margin-bottom: 28px; }
     .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .contact-link {
-      background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.3);
-      color: #c4b5fd; padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 600;
-      transition: all 0.2s;
-    }
+    .contact-link { background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.3); color: #c4b5fd; padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 600; transition: all 0.2s; }
     .contact-link:hover { background: var(--primary); color: #fff; }
 
-    /* FOOTER */
     footer { background: #0d0d1f; color: #666; text-align: center; padding: 24px; font-size: 13px; }
 
     @media (max-width: 640px) {
       .about-grid { grid-template-columns: 1fr; }
       nav { padding: 0 20px; }
       .nav-links { gap: 16px; }
+      .tcf-card { flex-direction: column; }
     }
   </style>
 </head>
@@ -127,6 +157,8 @@
   <div class="logo">Yasser<span>.</span></div>
   <div class="nav-links">
     <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
@@ -135,9 +167,16 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <div class="avatar">👨‍💻</div>
-    <h1>Hi, I'm <span>Yasser Bacha</span></h1>
-    <p class="tagline">Computer Science Engineering Student · Python & Web Developer<br>Passionate about building real-world solutions with code.</p>
+    <div class="avatar">
+      <img src="https://media.base44.com/images/public/69f53ec0618a96592fa35175/a2c2401d0_IMG_5055.jpg" alt="Bacha Mohamed Yasser" />
+    </div>
+    <p class="hero-subtitle">COMPUTER SCIENCE ENGINEERING STUDENT</p>
+    <h1>Bacha <span>Mohamed Yasser</span></h1>
+    <p class="tagline">
+      First-year CS Engineering student at USTHB, Bab Ezzouar · Algiers<br>
+      Passionate about Python, web development, and data engineering.
+    </p>
+    <div class="tcf-badge">🇫🇷 TCF — French Level B2 (C1 Oral &amp; Reading)</div>
     <div class="hero-btns">
       <a href="#projects" class="btn btn-primary">View My Projects</a>
       <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -152,23 +191,131 @@
     <h2 class="section-title">About Me</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a first-year Computer Science engineering student from Algeria, passionate about software development and problem-solving.</p>
-        <p>I enjoy building projects that solve real problems — from Python scripts to web apps. I'm currently focused on growing my skills in Python, web development, and AI integration.</p>
-        <p>My goal is to keep learning and contribute to meaningful technology projects.</p>
-        <div class="skills-list">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Git & GitHub</span>
-          <span class="skill-tag">Linux</span>
+        <p>I'm a first-year Computer Science Engineering student at USTHB, Bab Ezzouar (Algiers). I have a solid foundation in computer science enriched by hands-on project experience.</p>
+        <p>Pragmatic and fully committed, I invest my efforts into mastering essential technical foundations. My ambition is to build advanced expertise in data engineering — particularly Big Data and data pipelines — to actively contribute to innovation.</p>
+
+        <div class="info-list">
+          <div class="info-item"><span>📍</span> Bordj-Bou-Naama, Tissemsilt — Algeria</div>
+          <div class="info-item"><span>📞</span> +213 658 408 314</div>
+          <div class="info-item"><span>✉️</span> yasserbacha180@gmail.com</div>
+        </div>
+
+        <div class="skills-section">
+          <h4>TECHNICAL SKILLS</h4>
+          <div class="skills-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Mathematical Modeling</span>
+            <span class="skill-tag">Hardware Diagnostics</span>
+          </div>
+          <h4>LANGUAGES</h4>
+          <div class="lang-grid">
+            <div class="lang-item"><div class="lang-name">🇫🇷 French</div><div class="lang-level">Excellent (B2/C1)</div></div>
+            <div class="lang-item"><div class="lang-name">🇬🇧 English</div><div class="lang-level">Intermediate</div></div>
+            <div class="lang-item"><div class="lang-name">🇩🇿 Arabic</div><div class="lang-level">Native</div></div>
+          </div>
         </div>
       </div>
-      <div class="about-stats">
-        <div class="stat-card"><div class="num">6+</div><div class="lbl">Projects Built</div></div>
-        <div class="stat-card"><div class="num">1st</div><div class="lbl">Year CS Student</div></div>
-        <div class="stat-card"><div class="num">DZ</div><div class="lbl">Based in Algeria</div></div>
-        <div class="stat-card"><div class="num">AI</div><div class="lbl">Focus Area</div></div>
+
+      <div class="about-right">
+        <div class="stat-card"><div class="num">6+</div><div class="lbl">GitHub Projects</div></div>
+        <div class="stat-card"><div class="num">B2</div><div class="lbl">TCF French Level (C1 Oral)</div></div>
+        <div class="stat-card"><div class="num">USTHB</div><div class="lbl">Université des Sciences et de la Technologie Houari Boumediene</div></div>
+        <div class="stat-card"><div class="num">2024</div><div class="lbl">Baccalauréat — Série Mathématiques</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE & EDUCATION -->
+<section id="experience">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 60px; flex-wrap:wrap;">
+      <div>
+        <div class="section-label">EDUCATION</div>
+        <h2 class="section-title" style="margin-bottom:32px;">Studies</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-meta">2025 · USTHB, Bab Ezzouar</div>
+            <div class="timeline-title">Ingénieur Informatique (BAC+1)</div>
+            <div class="timeline-sub">Computer Science Engineering · USTHB</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2025 · USTHB, Bab Ezzouar</div>
+            <div class="timeline-title">Club Universitaire — Micro-Club</div>
+            <div class="timeline-sub">University tech club · BAC+1</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2024 · Tissemsilt</div>
+            <div class="timeline-title">Baccalauréat — Série Mathématiques</div>
+            <div class="timeline-sub">Lycée Chadli Bendjedid, Tissemsilt</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">EXPERIENCE</div>
+        <h2 class="section-title" style="margin-bottom:32px;">Work</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-meta">2025 · USTHB, Bab Ezzouar</div>
+            <div class="timeline-title">IT Maintenance Technician</div>
+            <div class="timeline-sub">Hardware repair — computer components</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2025 · Freelance, Algiers</div>
+            <div class="timeline-title">Web Developer</div>
+            <div class="timeline-sub">GitHub portfolio development</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2025 · Algiers</div>
+            <div class="timeline-title">Advanced Calculator — C Language</div>
+            <div class="timeline-sub">Personal programming project</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2024 · Tissemsilt</div>
+            <div class="timeline-title">IT Maintenance Technician</div>
+            <div class="timeline-sub">Hardware repair — PC, laptops, peripherals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">CERTIFICATIONS</div>
+    <h2 class="section-title">French Language Certificate</h2>
+    <div class="tcf-card">
+      <div class="tcf-left">
+        <div class="tcf-flag">🇫🇷</div>
+        <div class="tcf-name">TCF — Test de Connaissance du Français</div>
+        <div class="tcf-org">FRANCE ÉDUCATION INTERNATIONAL</div>
+        <div class="tcf-date">Session: 23 September 2025 · Valid until: 05 October 2027</div>
+        <div class="tcf-date" style="margin-top:8px; color:#6c63ff; font-weight:700;">Overall Level: B2</div>
+      </div>
+      <div class="tcf-scores">
+        <div class="score-item">
+          <div class="score-level">C1</div>
+          <div class="score-label">Oral Comprehension<br>512/699</div>
+        </div>
+        <div class="score-item">
+          <div class="score-level">C1</div>
+          <div class="score-label">Reading Comprehension<br>525/699</div>
+        </div>
+        <div class="score-item">
+          <div class="score-level">B2</div>
+          <div class="score-label">Overall QCM Score<br>461/699</div>
+        </div>
+        <div class="score-item">
+          <div class="score-level">B1</div>
+          <div class="score-label">Written Expression<br>8/20</div>
+        </div>
       </div>
     </div>
   </div>
@@ -180,39 +327,34 @@
     <div class="section-label">WHAT I BUILT</div>
     <h2 class="section-title">My Projects</h2>
     <div class="projects-grid">
-
       <div class="project-card">
         <div class="project-icon">📊</div>
         <h3>Student Grade Calculator</h3>
-        <p>A Python terminal app to calculate grades, GPA and averages across multiple subjects.</p>
+        <p>Python terminal app to calculate grades, GPA and averages across multiple subjects.</p>
         <div class="project-tags"><span class="tag">Python</span><span class="tag">Terminal</span></div>
         <a class="project-link" href="https://github.com/yasserbacha180-collab/student-grade-calculator" target="_blank">View on GitHub →</a>
       </div>
-
       <div class="project-card">
         <div class="project-icon">✅</div>
         <h3>To-Do App</h3>
-        <p>A clean web-based to-do list with filtering, localStorage persistence and a modern UI.</p>
+        <p>Clean web-based to-do list with filtering, localStorage persistence and a modern UI.</p>
         <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
         <a class="project-link" href="https://github.com/yasserbacha180-collab/todo-app" target="_blank">View on GitHub →</a>
       </div>
-
       <div class="project-card">
         <div class="project-icon">🌤️</div>
         <h3>Weather App</h3>
-        <p>Real-time weather data for any city using the OpenWeatherMap API. Built with pure Python.</p>
+        <p>Real-time weather data for any city using OpenWeatherMap API. Pure Python.</p>
         <div class="project-tags"><span class="tag">Python</span><span class="tag">API</span></div>
         <a class="project-link" href="https://github.com/yasserbacha180-collab/weather-app" target="_blank">View on GitHub →</a>
       </div>
-
       <div class="project-card">
         <div class="project-icon">🧠</div>
         <h3>Quiz Game</h3>
-        <p>A CS-themed Python quiz game with 15-second timers, score tracking and randomized questions.</p>
+        <p>CS-themed Python quiz with 15-second timers, score tracking and randomized questions.</p>
         <div class="project-tags"><span class="tag">Python</span><span class="tag">Game</span></div>
         <a class="project-link" href="https://github.com/yasserbacha180-collab/quiz-game" target="_blank">View on GitHub →</a>
       </div>
-
       <div class="project-card">
         <div class="project-icon">🤖</div>
         <h3>AI Text Summarizer</h3>
@@ -220,7 +362,6 @@
         <div class="project-tags"><span class="tag">Python</span><span class="tag">OpenAI</span><span class="tag">AI</span></div>
         <a class="project-link" href="https://github.com/yasserbacha180-collab/ai-text-summarizer" target="_blank">View on GitHub →</a>
       </div>
-
       <div class="project-card">
         <div class="project-icon">🐱</div>
         <h3>Cat Website</h3>
@@ -228,7 +369,6 @@
         <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
         <a class="project-link" href="https://github.com/yasserbacha180-collab/cat-website" target="_blank">View on GitHub →</a>
       </div>
-
     </div>
   </div>
 </section>
@@ -239,17 +379,18 @@
     <div class="section-label">GET IN TOUCH</div>
     <h2 class="section-title">Contact Me</h2>
     <div class="contact-box">
-      <p>I'm open to collaborations, internships, and new opportunities. Feel free to reach out!</p>
+      <p>I'm open to collaborations, internships, and new opportunities. Based in Algeria, aiming for graduate studies in Romania.</p>
       <div class="contact-links">
         <a class="contact-link" href="https://github.com/yasserbacha180-collab" target="_blank">🐙 GitHub</a>
-        <a class="contact-link" href="mailto:yasserbacha180@gmail.com">✉️ Email</a>
+        <a class="contact-link" href="mailto:yasserbacha180@gmail.com">✉️ yasserbacha180@gmail.com</a>
+        <a class="contact-link" href="tel:+213658408314">📞 +213 658 408 314</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 Yasser Bacha — Built with HTML & CSS
+  © 2026 Bacha Mohamed Yasser — Computer Science Engineering Student · USTHB, Algiers
 </footer>
 
 </body>
